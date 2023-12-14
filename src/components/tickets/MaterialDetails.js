@@ -5,10 +5,8 @@ import { getMaterial } from "../../data/materialsData";
 
 export default function MaterialDetails() {
   const { id } = useParams();
-
   const [material, setMaterial] = useState(null);
 
-  //add useEffect here to get the ticket details from the API
   useEffect(() => {
     getMaterial(id).then(setMaterial);
   }, []);

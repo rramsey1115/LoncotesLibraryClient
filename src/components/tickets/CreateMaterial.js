@@ -32,7 +32,7 @@ export default function CreateMaterial() {
   };
 
   return (
-    <div className="container">
+    <div className="container" style={{marginTop:30}}>
       <h4>Add a New Material</h4>
       <Form>
         <FormGroup>

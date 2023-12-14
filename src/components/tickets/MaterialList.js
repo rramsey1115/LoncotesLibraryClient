@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import { Table } from "reactstrap";
+import { Button, Table } from "reactstrap";
 import { getMaterials } from "../../data/materialsData";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function MaterialList() {
   const [materials, setMaterials] = useState([]);
@@ -10,8 +10,10 @@ export default function MaterialList() {
     getMaterials().then(setMaterials);
   }, []);
 
+  const navigate = useNavigate();
+
   return (
-    <div className="container">
+    <div className="container" style={{marginTop:30}}>
       <div className="sub-menu bg-light">
         <h4>Materials</h4>
         <Link to="/materials/create">Add</Link>
@@ -34,7 +36,7 @@ export default function MaterialList() {
               <td>{m.materialType.name}</td>
               <td>{m.genre.name}</td>
               <td>
-                <Link to={`${m.id}`}>Details</Link>
+              <Button color="primary" value={m.id} onClick={(e) => navigate(`${e.target.value}`)}>Details</Button>
               </td>
             </tr>
           ))}

@@ -5,10 +5,8 @@ import { getMaterial } from "../../data/materialsData";
 
 export default function MaterialDetails() {
   const { id } = useParams();
-
   const [material, setMaterial] = useState(null);
 
-  //add useEffect here to get the ticket details from the API
   useEffect(() => {
     getMaterial(id).then(setMaterial);
   }, []);
@@ -18,7 +16,7 @@ export default function MaterialDetails() {
   }
 
   return (
-    <div className="container">
+    <div className="container" style={{marginTop:30}}>
       <h2>{material.materialName}</h2>
       <Table>
         <tbody>

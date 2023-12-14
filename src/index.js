@@ -2,11 +2,13 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
-import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import MaterialList from "./components/tickets/MaterialList";
 import MaterialDetails from "./components/tickets/MaterialDetails";
 import CreateMaterial from "./components/tickets/CreateMaterial";
+import { PatronList } from "./components/patrons/PatronList";
+import { PatronDetails } from "./components/patrons/PatronDetails";
+import { EditPatronForm } from "./components/patrons/EditPatron";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -18,12 +20,14 @@ root.render(
           <Route path=":id" element={<MaterialDetails />} />
           <Route path="create" element={<CreateMaterial />} />
         </Route>
+        <Route path="patrons">
+          <Route index element={<PatronList />} />
+          <Route path=":id" element={<PatronDetails />} />
+          <Route path=":id/edit" element={<EditPatronForm />} />
+        </Route>
       </Route>
     </Routes>
   </BrowserRouter>,
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+

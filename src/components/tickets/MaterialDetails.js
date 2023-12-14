@@ -16,7 +16,7 @@ export default function MaterialDetails() {
   }
 
   return (
-    <div className="container">
+    <div className="container" style={{marginTop:30}}>
       <h2>{material.materialName}</h2>
       <Table>
         <tbody>

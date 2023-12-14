@@ -13,7 +13,7 @@ export default function MaterialList() {
   const navigate = useNavigate();
 
   return (
-    <div className="container">
+    <div className="container" style={{marginTop:30}}>
       <div className="sub-menu bg-light">
         <h4>Materials</h4>
         <Link to="/materials/create">Add</Link>

@@ -6,7 +6,7 @@ import { Table } from "reactstrap";
 export const PatronDetails = () => {
     const {id} = useParams();
     const [ patron, setPatron] = useState({});
-    
+
     let lateFees = 0;
     patron.checkouts?.map(co => lateFees += co.lateFee)
 
@@ -19,7 +19,7 @@ export const PatronDetails = () => {
     }
     
     return (
-    <div className="container">
+    <div className="container" style={{marginTop:30}}>
         <h2>{patron.firstName} {patron.lastName}</h2>
         <Table>
         <tbody>

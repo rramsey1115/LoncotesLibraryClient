@@ -13,10 +13,9 @@ export const PatronList = () => {
     const navigate = useNavigate();
     
     return (
-    <div className="container">
+    <div className="container" style={{marginTop:30}}>
         <div className="sub-menu bg-light">
             <h4>Patrons</h4>
-            <Link to="">Add</Link>
         </div>
         <Table>
             <thead>

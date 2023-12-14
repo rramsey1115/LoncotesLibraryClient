@@ -1,12 +1,13 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom"
+import { useNavigate, useParams } from "react-router-dom"
 import { getPatronById } from "../../data/patronsData";
-import { Table } from "reactstrap";
+import { Button, Table } from "reactstrap";
 
 export const PatronDetails = () => {
     const {id} = useParams();
     const [ patron, setPatron] = useState({});
 
+    const navigate = useNavigate();
     let lateFees = 0;
     patron.checkouts?.map(co => lateFees += co.lateFee)
 
@@ -20,7 +21,17 @@ export const PatronDetails = () => {
     
     return (
     <div className="container" style={{marginTop:30}}>
-        <h2>{patron.firstName} {patron.lastName}</h2>
+        <div style={{display:"flex", flexDirection:"row", justifyContent:"space-between"}}>
+            <h2>{patron.firstName} {patron.lastName}</h2>
+            <Button 
+                size="sm" 
+                color="warning" 
+                style={{height:33}}
+                value={patron.id}
+                onClick={(e) => navigate(`/patrons/${e.target.value}/edit`)}
+                >Edit User
+            </Button>
+        </div>
         <Table>
         <tbody>
             <tr>

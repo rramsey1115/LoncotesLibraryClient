@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import { getAllOverdueCheckouts } from "../../data/checkoutsData";
 import { Button, Table } from "reactstrap";
+import { useNavigate } from "react-router-dom";
 
 export const OverdueCheckouts = () => {
     const [overdues, setOverdues] = useState([]);
@@ -12,6 +13,8 @@ export const OverdueCheckouts = () => {
     const getAndSetCheckouts = () => {
         getAllOverdueCheckouts().then(setOverdues)
     };
+
+    const navigate = useNavigate();
   
     return (
         <div className="container" style={{marginTop:30}}>
@@ -26,7 +29,7 @@ export const OverdueCheckouts = () => {
                     <th>Material Type</th>
                     <th>Genre</th>
                     <th>Patron</th>
-                    <th>Returned</th>
+                    <th>Return</th>
                 </tr>
             </thead>
             <tbody>
@@ -42,9 +45,10 @@ export const OverdueCheckouts = () => {
                             ? co.returnDate
                             : <Button
                                 size="sm"
-                                color="success"
-                                value={co.id}
-                                >Return
+                                color="warning"
+                                value={co.patron.id}
+                                onClick={e => navigate(`/patrons/${e.target.value}`)}
+                                >User Details
                             </Button>}
                         </td>
                     </tr>)

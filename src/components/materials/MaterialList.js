@@ -22,12 +22,12 @@ export default function MaterialList() {
 
   return (
     <div className="container" style={{marginTop:30}}>
-      <div className="sub-menu bg-light">
-        <h4>Materials</h4>
+      <div className="sub-menu bg-light" style={{display:"flex", justifyContent:"space-between"}}>
+        <h4 style={{margin:10}}>Materials</h4>
         <Button 
           color="success" 
           size="sm"
-          style={{width:80, height:30, marginLeft:30}}
+          style={{width:80, height:30, margin:10}}
           onClick={(e) => navigate("/materials/create")}
           >New +
         </Button>
@@ -52,7 +52,7 @@ export default function MaterialList() {
               <td>{m.genre.name}</td>
               <td>
                 <Button 
-                  color="primary"
+                  color="warning"
                   size="sm"
                   value={m.id} 
                   onClick={(e) => navigate(`${e.target.value}`)}

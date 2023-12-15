@@ -24,3 +24,7 @@ export const removeFromCirc = (materialId) => {
       headers: {"Content-Type":"application/json"}
     });
 };
+
+export const getAvailableMaterials = () => {
+  return fetch(`${_apiUrl}/available`).then(res => res.json());
+}

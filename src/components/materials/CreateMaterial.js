@@ -79,7 +79,11 @@ export default function CreateMaterial() {
             ))}
           </Input>
         </FormGroup>
-        <Button onClick={submit}>Submit</Button>
+        {materialName && 
+        materialTypeId && 
+        genreId 
+          ? <Button onClick={submit}>Submit</Button> 
+          : <Button disabled>Submit</Button>}
       </Form>
     </div>
   );

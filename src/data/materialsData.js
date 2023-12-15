@@ -1,7 +1,11 @@
 const _apiUrl = "/api/materials";
 
 export const getMaterials = () => {
-  return fetch(_apiUrl).then((r) => r.json());
+  return fetch(`${_apiUrl}`).then((r) => r.json());
+};
+
+export const getFilteredMaterials = (mtId, gId) => {
+  return fetch(`${_apiUrl}/${mtId}/${gId}`).then((r) => r.json());
 };
 
 //export a function here that gets a ticket by id

@@ -1,14 +1,22 @@
 import { useEffect, useState } from "react";
 import { Button, Table } from "reactstrap";
-import { getMaterials } from "../../data/materialsData";
+import { getMaterials, removeFromCirc } from "../../data/materialsData";
 import { useNavigate } from "react-router-dom";
 
 export default function MaterialList() {
   const [materials, setMaterials] = useState([]);
 
   useEffect(() => {
-    getMaterials().then(setMaterials);
+    getAndSetMaterials();
   }, []);
+
+  const getAndSetMaterials = () => {
+    getMaterials().then(setMaterials);
+  };
+
+  const handleRemove = (id) => {
+    removeFromCirc(id).then(getAndSetMaterials());
+  };
 
   const navigate = useNavigate();
 
@@ -31,7 +39,8 @@ export default function MaterialList() {
             <th>Title</th>
             <th>Type</th>
             <th>Genre</th>
-            <th></th>
+            <th>Details</th>
+            <th>Circulation</th>
           </tr>
         </thead>
         <tbody>
@@ -48,6 +57,15 @@ export default function MaterialList() {
                   value={m.id} 
                   onClick={(e) => navigate(`${e.target.value}`)}
                   >Details
+                </Button>
+              </td>
+              <td>
+                <Button
+                  color="danger"
+                  size="sm"
+                  value={m.id}
+                  onClick={(e) => handleRemove(e.target.value)}
+                  >Remove
                 </Button>
               </td>
             </tr>

@@ -16,3 +16,11 @@ export const createMaterial = (material) => {
     body: JSON.stringify(material),
   }).then((res) => res.json());
 };
+
+export const removeFromCirc = (materialId) => {
+  return fetch(`${_apiUrl}/${materialId * 1}/remove_circulation`,
+    {
+      method: "PUT",
+      headers: {"Content-Type":"application/json"}
+    });
+};

@@ -1,27 +1,22 @@
 import { useEffect, useState } from "react"
-import { getAllCheckouts, returnCheckoutById } from "../../data/checkoutsData";
+import { getAllOverdueCheckouts } from "../../data/checkoutsData";
 import { Button, Table } from "reactstrap";
 
-export const CheckoutsList = () => {
-    const [checkouts, setCheckouts] = useState([]);
+export const OverdueCheckouts = () => {
+    const [overdues, setOverdues] = useState([]);
 
     useEffect(() => {
         getAndSetCheckouts();
     }, []);
 
     const getAndSetCheckouts = () => {
-        getAllCheckouts().then(setCheckouts)
+        getAllOverdueCheckouts().then(setOverdues)
     };
-
-    const handleReturn = (id) => {
-        returnCheckoutById(id * 1).then(getAndSetCheckouts());
-    }
-
   
     return (
         <div className="container" style={{marginTop:30}}>
         <div className="sub-menu bg-light">
-            <h4>Checkouts</h4>
+            <h4>Overdue Checkouts</h4>
         </div>
         <Table style={{marginTop:10}}>
             <thead>
@@ -35,7 +30,7 @@ export const CheckoutsList = () => {
                 </tr>
             </thead>
             <tbody>
-                {checkouts.map((co) => {
+                {overdues.map((co) => {
                     console.log("date", co.returnDate)
                     return(<tr key={co.id}>
                         <th scope="row">{co.id}</th>
@@ -49,7 +44,6 @@ export const CheckoutsList = () => {
                                 size="sm"
                                 color="success"
                                 value={co.id}
-                                onClick={(e) => handleReturn(e.target.value)}
                                 >Return
                             </Button>}
                         </td>

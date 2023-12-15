@@ -47,16 +47,25 @@ export const PatronList = () => {
                         ? <Button
                             color="danger"
                             size="sm"
+                            style={{width:80}}
                             value={p.id}
                             onClick={e => handleDeactivate(e.target.value)}
                             >Deactivate
                         </Button> 
-                        : "Inactive"}
+                        : <Button
+                        color="success"
+                        size="sm"
+                        style={{width:80}}
+                        value={p.id}
+                        onClick={e => handleDeactivate(e.target.value)}
+                        >Activate
+                    </Button> }
                     </td>
                     <td>
                         <Button 
                             color="primary" 
                             size="sm" 
+                            style={{width:80}}
                             value={p.id} 
                             onClick={(e) => navigate(`${e.target.value}`)}
                             >Details

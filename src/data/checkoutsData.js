@@ -11,3 +11,17 @@ export const returnCheckoutById = (id) => {
         headers: {"Content-Type":"application/json"}
     });
 };
+
+export const newCheckout = async (checkoutObj) => {
+    const res = await fetch(`${_apiUrl}`, {
+        method:"POST", 
+        headers:{"Content-Type":"application/json",}, 
+        body: JSON.stringify(checkoutObj),
+    }).then((res) => res.json());
+    return res
+}
+
+
+export const getAllOverdueCheckouts = () => {
+    return fetch(`${_apiUrl}/overdue`).then((res) => res.json())
+}

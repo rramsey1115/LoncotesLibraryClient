@@ -23,12 +23,6 @@ export const AvailableMaterials = () => {
     <div className="container" style={{marginTop:30}}>
       <div className="sub-menu bg-light">
         <h4>Available Materials</h4>
-        {/* <Button 
-          color="success" 
-          size="sm"
-          style={{width:80, height:30, marginLeft:30}}
-          >New +
-        </Button> */}
       </div>
       <Table>
         <thead>

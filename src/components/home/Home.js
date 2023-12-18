@@ -24,7 +24,7 @@ export const Home = () => {
                     <tr><th><h4>Skills Used:</h4></th></tr>
                 </thead>
                 <tbody>
-                <tr height="100">
+                <tr height="125">
                     <td width="125"><img width="80" src="https://user-images.githubusercontent.com/25181517/121405384-444d7300-c95d-11eb-959f-913020d3bf90.png" alt="C#" title="C#"/></td>
                     <td width="125"><img width="80" src="https://user-images.githubusercontent.com/25181517/121405754-b4f48f80-c95d-11eb-8893-fc325bde617f.png" alt=".NET Core" title=".NET Core"/></td>               
                     <td width="125"><img width="80" src="https://user-images.githubusercontent.com/25181517/117208740-bfb78400-adf5-11eb-97bb-09072b6bedfc.png" alt="PostgreSQL" title="PostgreSQL"/></td>

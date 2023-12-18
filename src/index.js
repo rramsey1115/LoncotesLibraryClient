@@ -13,12 +13,14 @@ import { CheckoutsList } from "./components/checkouts/checkoutsList";
 import { AvailableMaterials } from "./components/browse/AvailableMaterials";
 import { CreateCheckout } from "./components/checkouts/CreateCheckout";
 import { OverdueCheckouts } from "./components/checkouts/OverdueCheckouts";
+import { Home } from "./components/home/Home";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <BrowserRouter>
     <Routes>
       <Route path="/" element={<App />}>
+        <Route path="/" index element={<Home />} />
         <Route path="materials">
           <Route index element={<MaterialList />} />
           <Route path=":id" element={<MaterialDetails />} />

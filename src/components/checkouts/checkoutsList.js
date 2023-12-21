@@ -36,7 +36,6 @@ export const CheckoutsList = () => {
             </thead>
             <tbody>
                 {checkouts.map((co) => {
-                    console.log("date", co.returnDate)
                     return(<tr key={co.id}>
                         <th scope="row">{co.id}</th>
                         <td>{co.material.materialName}</td>
